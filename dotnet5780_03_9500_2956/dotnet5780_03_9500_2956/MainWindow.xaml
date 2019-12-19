@@ -18,7 +18,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ComboBox Name="cbHostList" HorizontalAlignment="stretch" VerticalAlignment="Stretch" Grid.Column="0"/>
+            <ComboBox Name="cbHostList" HorizontalAlignment="stretch" VerticalAlignment="Stretch" Grid.Column="0" SelectionChanged="cbHostList_SelectionChanged"/>
             <TextBox Name="tbHostName" HorizontalAlignment="stretch" VerticalAlignment="stretch" Grid.Column="1" Text="{Binding Path=HostName}"/>
         </Grid>
        

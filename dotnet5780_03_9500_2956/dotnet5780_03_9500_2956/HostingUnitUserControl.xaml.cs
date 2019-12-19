@@ -22,9 +22,23 @@ namespace dotnet5780_03_9500_2956
     {
         public HostingUnit CurrentHostingUnit { get; set; }
         private Calendar MyCalendar;
+        int imageIndex;
+        Viewbox vbImage;
+        Image MyImage;
+
         public HostingUnitUserControl(HostingUnit hostUnit)
         {
+            vbImage = new Viewbox();
             InitializeComponent();
+            imageIndex = 0;
+            vbImage.Width = 75;
+            vbImage.Height = 75;
+            vbImage.Stretch = Stretch.Fill;
+            UserControlGrid.Children.Add(vbImage);
+            Grid.SetColumn(vbImage, 2);
+            Grid.SetRow(vbImage, 0);
+
+
             this.CurrentHostingUnit = hostUnit;
             UserControlGrid.DataContext = hostUnit;
             MyCalendar = CreateCalendar();

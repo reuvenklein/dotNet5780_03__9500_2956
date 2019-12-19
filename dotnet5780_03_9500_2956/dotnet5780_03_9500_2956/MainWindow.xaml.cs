@@ -20,13 +20,11 @@ namespace dotnet5780_03_9500_2956
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Host> hostsList;
         public MainWindow()
         {
-            //comment
             InitializeComponent();
-
-
-            List<Host> hostsList = new List<Host>()
+            hostsList = new List<Host>()
             {
                 new Host()
                 {
@@ -45,7 +43,7 @@ namespace dotnet5780_03_9500_2956
                         },
                           new HostingUnit()
                         {
-                            UnitName = "יופי של צימר",
+                            UnitName = "יופי של צימר 2",
                             Rooms=3,
                             IsSwimmingPool=true,
                             AllOrders=new List<DateTime>(),
@@ -62,7 +60,7 @@ namespace dotnet5780_03_9500_2956
                     {
                         new HostingUnit()
                         {
-                            UnitName = "יופי של צימר",
+                            UnitName = "יופי של צימר 3",
                             Rooms=3,
                             IsSwimmingPool=true,
                             AllOrders=new List<DateTime>(),
@@ -72,7 +70,7 @@ namespace dotnet5780_03_9500_2956
                         },
                           new HostingUnit()
                         {
-                            UnitName = "יופי של צימר",
+                            UnitName = " 4יופי של צימר",
                             Rooms=3,
                             IsSwimmingPool=true,
                             AllOrders=new List<DateTime>(),
@@ -89,7 +87,7 @@ namespace dotnet5780_03_9500_2956
                     {
                         new HostingUnit()
                         {
-                            UnitName = "יופי של צימר",
+                            UnitName = "יופי של צימר 5",
                             Rooms=3,
                             IsSwimmingPool=true,
                             AllOrders=new List<DateTime>(),
@@ -99,7 +97,7 @@ namespace dotnet5780_03_9500_2956
                         },
                           new HostingUnit()
                         {
-                            UnitName = "יופי של צימר",
+                            UnitName = "יופי של צימר 6",
                             Rooms=3,
                             IsSwimmingPool=true,
                             AllOrders=new List<DateTime>(),
@@ -113,6 +111,25 @@ namespace dotnet5780_03_9500_2956
             cbHostList.ItemsSource = hostsList;
             cbHostList.DisplayMemberPath = "HostName";
             cbHostList.SelectedIndex = 0;
+        }
+
+        private Host currentHost;
+
+        private void cbHostList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            InitializeHost(cbHostList.SelectedIndex);
+        }
+        private void InitializeHost(int index)
+        {
+            MainGrid.Children.RemoveRange(1,3);
+            currentHost = hostsList[index];
+            UpGrid.DataContext = currentHost;
+            for (int i = 0; i < currentHost.Units.Count; i++)
+            {
+                HostingUnitUserControl a = new HostingUnitUserControl(currentHost.Units[i]);
+                MainGrid.Children.Add(a);
+                Grid.SetRow(a,i+1);
+            }
         }
     }
 }
