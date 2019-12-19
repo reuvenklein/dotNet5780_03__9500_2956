@@ -5,15 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:dotnet5780_03_9500_2956"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Height="200">
+             d:DesignHeight="200" d:DesignWidth="800" BorderThickness="1"
+             FontFamily="Arial" FontSize="20">
     <Grid Name="UserControlGrid">
-        <Grid.ColumnDefinitions>            <ColumnDefinition Width="33*"/>            <ColumnDefinition Width="33*"/>            <ColumnDefinition Width="33*"/>        </Grid.ColumnDefinitions>
-        <TextBox Name="tbUnitName" HorizontalAlignment="Left" Height="23" Margin="48,10,0,0" TextWrapping="Wrap" Text="{Binding Path=UnitName}" VerticalAlignment="Top" Width="144"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="tbUnitName" Text="{Binding Path=UnitName}" HorizontalAlignment="Left" Height="23" Margin="48,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
         <Label Content="מספר חדרים" HorizontalAlignment="Left" Margin="162,95,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.592,1.731"/>
-        <TextBox Name ="tbRooms" HorizontalAlignment="Left" Height="23" Margin="29,99,0,0" TextWrapping="Wrap" Text="{Binding Path=Rooms}" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.6,1.391"/>
-        <CheckBox Name ="IsSwimigPool" Content="בריכה" HorizontalAlignment="Left" Margin="29,151,0,0" VerticalAlignment="Top" IsChecked="{Binding Path=IsSwimingPool}" />
-        <Viewbox Name="vbCalendar" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="80,21,0,0" VerticalAlignment="Top" Width="100" Stretch="Fill"/>
-        <Button Name ="btOrder" Content="הזמן" Grid.Column="1" HorizontalAlignment="Left" Margin="103,159,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox Name ="tbRooms" Text="{Binding Path=Rooms}" HorizontalAlignment="Left" Height="23" Margin="29,99,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.6,1.391"/>
+        <CheckBox Name ="IsSwimmingPool" Content="בריכה" IsChecked="{Binding Path=IsSwimmingPool}" HorizontalAlignment="Left" Margin="29,151,0,0" VerticalAlignment="Top"/>
+        <Viewbox Name="vbCalendar" Grid.Column="1" Stretch="Fill" Height="160" VerticalAlignment="Top" />
+        <Button Name ="btOrder" Content="הזמן" Grid.Column="1" VerticalAlignment="Bottom" Height="40" Click="btOrder_Click"/>
 
 
     </Grid>

@@ -20,6 +20,18 @@ namespace dotnet5780_03_9500_2956
     /// </summary>
     public partial class HostingUnitUserControl : UserControl
     {
+        public HostingUnit CurrentHostingUnit { get; set; }
+        private Calendar MyCalendar;
+        public HostingUnitUserControl(HostingUnit hostUnit)
+        {
+            InitializeComponent();
+            this.CurrentHostingUnit = hostUnit;
+            UserControlGrid.DataContext = hostUnit;
+            MyCalendar = CreateCalendar();
+            vbCalendar.Child = null;
+            vbCalendar.Child = MyCalendar;
+            SetBlackOutDates();
+        }
         private Calendar CreateCalendar()
         {
             Calendar MonthlyCalendar = new Calendar();
@@ -36,18 +48,21 @@ namespace dotnet5780_03_9500_2956
                 MyCalendar.BlackoutDates.Add(new CalendarDateRange(date));
             }
         }
-        private Calendar MyCalendar;
-        public HostingUnit CurrentHostingUnit { get; set; }
-        public HostingUnitUserControl(HostingUnit hostUnit)
+        private void btOrder_Click(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
-            this.CurrentHostingUnit = hostUnit;
-            UserControlGrid.DataContext = hostUnit;
-            Calendar MyCalendar;
+            List<DateTime> myList = MyCalendar.SelectedDates.ToList();
             MyCalendar = CreateCalendar();
-             vbCalendar.Child=null;
+            vbCalendar.Child = null;
             vbCalendar.Child = MyCalendar;
+            addCurrentList(myList);
             SetBlackOutDates();
+        }
+        private void addCurrentList(List<DateTime> tList)
+        {
+            foreach (DateTime d in tList)
+            {
+                CurrentHostingUnit.AllOrders.Add(d);
+            }
         }
     }
 }

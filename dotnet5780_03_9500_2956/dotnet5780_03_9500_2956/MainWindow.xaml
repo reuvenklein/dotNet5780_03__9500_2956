@@ -6,9 +6,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="640" Width="800">
     <Grid Name="MainGrid">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
             <RowDefinition Height="200*"/>
@@ -20,10 +17,9 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-               
             </Grid.ColumnDefinitions>
-            <TextBox Name ="tbHostName" Grid.Column="1" HorizontalAlignment="stretch" Height="23" Margin="204,10,0,0" TextWrapping="Wrap"  VerticalAlignment="stretch" Width="120"  Text="{Binding Path=HostName}"/>
-            <ComboBox Name="cbHostList" HorizontalAlignment="stretch" Margin="226,10,0,0" VerticalAlignment="Stretch" Grid.Column="0" Width="120" />
+            <ComboBox Name="cbHostList" HorizontalAlignment="stretch" VerticalAlignment="Stretch" Grid.Column="0"/>
+            <TextBox Name="tbHostName" HorizontalAlignment="stretch" VerticalAlignment="stretch" Grid.Column="1" Text="{Binding Path=HostName}"/>
         </Grid>
        
     </Grid>
