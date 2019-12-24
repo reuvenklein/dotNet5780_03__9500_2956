@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Icon="file.ico"
-        Title="MainWindow" Height="640" Width="800">
-    <Grid Name="MainGrid">
+        Title="מאגר הצימרים הגדול" Height="640" Width="800">
+    <Grid Name="MainGrid" Background="CadetBlue">
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
             <RowDefinition Height="200*"/>
@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ComboBox Name="cbHostList" HorizontalAlignment="stretch" VerticalAlignment="Stretch" Grid.Column="0" SelectionChanged="cbHostList_SelectionChanged"/>
+            <ComboBox Name="cbHostList" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="stretch" VerticalAlignment="Stretch" Grid.Column="0" SelectionChanged="cbHostList_SelectionChanged"/>
             <TextBox Name="tbHostName" HorizontalAlignment="stretch" VerticalAlignment="stretch" Grid.Column="1" Text="{Binding Path=HostName}"/>
         </Grid>
        
